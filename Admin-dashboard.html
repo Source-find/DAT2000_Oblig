@@ -5,49 +5,61 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin Dashboard</title>
-
-    <style>
-      body{ font-family: Arial, Helvetica, sans-serif; background:#f7fafc; color:#111; }
-      .wrap{ max-width:900px; margin:40px auto; padding:20px; }
-      header{ display:flex; justify-content:space-between; align-items:center }
-      .card{ background:#fff; padding:18px; border-radius:8px; box-shadow:0 6px 18px rgba(20,30,60,0.06); }
-      button{ background:#05c625; color:#fff; border:none; padding:8px 12px; border-radius:6px; cursor:pointer }
-      button:hover{ opacity:0.95 }
-    </style>
-
+    <link rel="stylesheet" href="css/styles.css">
   </head>
 
   <body>
     <div class="wrap">
+      <div class="back-link">
+        <a href="index.html">← Tilbake til forsiden</a>
+      </div>
+
       <header>
-        <h1>Admin Brukerside</h1>
+        <h1>Admin Dashboard</h1>
         <div>
           <button id="logout">Logg ut</button>
         </div>
       </header>
 
-      <main style="margin-top:20px">
+      <main>
         <section class="card">
           <h2>Velkommen, Admin</h2>
-          <p>Du må være logget inn for å se denne siden</p>
+          <p>Du er nå logget inn som administrator og har tilgang til alle systemfunksjoner.</p>
+
+          <div class="mt-20">
+            <h3>Hurtighandlinger</h3>
+            <div class="flex gap-12 flex-wrap admin-buttons">
+              <button onclick="viewUsers()">
+                Se brukere
+              </button>
+              <button onclick="manageContent()">
+                Administrer innhold
+              </button>
+              <button onclick="viewReports()">
+                Rapporter
+              </button>
+            </div>
+          </div>
         </section>
+
+        <div class="admin-stats">
+          <div class="stat-card">
+            <div class="stat-number" id="userCount">-</div>
+            <div class="stat-label">Registrerte brukere</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="adminSessions">1</div>
+            <div class="stat-label">Aktive admin-sesjoner</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="lastLogin">-</div>
+            <div class="stat-label">Siste innlogging</div>
+          </div>
+        </div>
       </main>
     </div>
 
-    <script>
-      (function(){
-        // Simple protection: check localStorage flag set by login page.
-        if(localStorage.getItem('adminLoggedIn') !== '1'){
-          // not logged in -> redirect to login
-          window.location.href = 'Admin.html';
-        }
-
-        document.getElementById('logout').addEventListener('click', function(){
-          localStorage.removeItem('adminLoggedIn');
-          window.location.href = 'Admin.html';
-        });
-      })();
-    </script>
+    <script src="js/admin-dashboard.js"></script>
 
   </body>
 

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brukerinnlogging</title>
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+
+  <body>
+    <div class="container small">
+      <div class="back-link">
+        <a href="index.html">← Tilbake til forsiden</a>
+      </div>
+
+      <div class="login-type-tabs">
+        <a href="login.html" class="tab active">Bruker</a>
+        <a href="Admin.html" class="tab">Admin</a>
+      </div>
+
+      <h2>Logg inn</h2>
+
+      <form id="loginForm" autocomplete="off">
+        <div class="form-group">
+          <label for="username">Brukernavn eller e-post</label>
+          <input id="username" name="username" type="text" placeholder="Ditt brukernavn eller e-post" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Passord</label>
+          <input id="password" name="password" type="password" placeholder="Ditt passord" required />
+        </div>
+
+        <div class="actions">
+          <button type="submit" id="submitBtn">Logg inn</button>
+        </div>
+
+        <div id="message" class="error" role="alert" aria-live="polite"></div>
+      </form>
+
+      <div class="register-link">
+        Har du ikke bruker? <a href="registrering.html">Opprett bruker her</a>
+      </div>
+
+      <div class="demo-info">
+        <strong>Demo:</strong> Opprett en bruker via registreringssiden, eller bruk en av de registrerte brukerne hvis de finnes.
+      </div>
+    </div>
+
+    <script src="js/login.js"></script>
+  </body>
+</html>

@@ -1,20 +1,11 @@
 <!doctype html>
 <html lang="en">
-  
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Brukerside</title>
-
-    <style>
-      body{ font-family: Arial, Helvetica, sans-serif; background:#f7fafc; color:#111; }
-      .wrap{ max-width:900px; margin:40px auto; padding:20px; }
-      header{ display:flex; justify-content:space-between; align-items:center }
-      .card{ background:#fff; padding:18px; border-radius:8px; box-shadow:0 6px 18px rgba(20,30,60,0.06); }
-      button{ background:#165b03; color:#fff; border:none; padding:8px 12px; border-radius:6px; cursor:pointer }
-      button:hover{ opacity:0.95 }
-    </style>
-
+    <link rel="stylesheet" href="css/styles.css">
   </head>
 
   <body>
@@ -26,17 +17,34 @@
         </div>
       </header>
 
-      <main style="margin-top:20px">
+      <main class="mt-20">
         <section class="card">
-          <h2>Velkommen, Toothfairy</h2>
+          <h2 id="welcomeMessage">Velkommen!</h2>
           <p>Du er nå logget inn og kan se og lagre turer, hytter osv..</p>
+
+          <div id="userInfo">
+            <h3>Din profil</h3>
+            <div id="profileDetails">
+              <!-- Brukerinfo lastes dynamisk -->
+            </div>
+          </div>
+        </section>
+
+        <section class="card mt-20">
+          <h3>Hurtiglenker</h3>
+          <div class="flex gap-12 flex-wrap admin-buttons">
+            <button onclick="window.location.href='Tur.html'">
+              Se turer
+            </button>
+            <button onclick="alert('Funksjonalitet kommer snart!')" class="button-disabled">
+              Mine favoritter
+            </button>
+          </div>
         </section>
       </main>
     </div>
 
-    <script>
-      
-    </script>
+    <script src="js/user.js"></script>
 
   </body>
 
