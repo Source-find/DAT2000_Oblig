@@ -48,18 +48,31 @@
   }
 
   function saveUser(userData) {
-    const users = JSON.parse(localStorage.getItem('registeredUsers') || '[]');
-
-    // Legg til bruker med timestamp
-    const newUser = {
-      ...userData,
-      id: Date.now(),
-      registrertDato: new Date().toISOString()
-    };
-
-    users.push(newUser);
-    localStorage.setItem('registeredUsers', JSON.stringify(users));
-    return newUser;
+    // Send data til backend-server
+    fetch('/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        fornavn: userData.fornavn,
+        etternavn: userData.etternavn,
+        email: userData.email,
+        telefon: userData.telefon,
+        brukernavn: userData.brukernavn,
+        passord: userData.passord
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.message) {
+        showMessage('Registrering vellykket!', false);
+        form.reset();
+      } else {
+        showMessage(data.error || 'Noe gikk galt ved registrering.');
+      }
+    })
+    .catch(() => {
+      showMessage('Kunne ikke koble til server.');
+    });
   }
 
   // Form submit handler
