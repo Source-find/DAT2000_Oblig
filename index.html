@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>UT.no-klone - Turer og friluftsliv</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>UT.no-klone</h1>
+      <div class="nav-links">
+        <a href="#turer">Turer</a>
+        <a href="#ny-tur" id="nyTurLink" style="display:none;">Opprett tur</a>
+        <a href="#" id="loginLink">Logg inn</a>
+        <a href="#" id="logoutLink" style="display:none;">Logg ut</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Login modal -->
+    <div id="loginModal" class="modal" style="display:none;">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Bli medlem</h2>
+        <form id="loginForm">
+          <label for="email">E-post:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="name">Navn:</label>
+          <input type="text" id="name" name="name" required>
+          <button type="submit">Registrer deg</button>
+        </form>
+        <div id="loginMessage"></div>
+      </div>
+    </div>
+
+    <!-- User info -->
+    <div id="userInfo"></div>
+
+    <!-- Turer section -->
+    <section id="turer">
+      <h2>Turer</h2>
+      <ul id="tripList"></ul>
+    </section>
+
+    <!-- Ny tur section (kun for innloggede) -->
+    <section id="ny-tur" style="display:none;">
+      <h2>Opprett ny tur</h2>
+      <form id="tripForm">
+        <label for="title">Tittel:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="description">Beskrivelse:</label>
+        <textarea id="description" name="description" required></textarea>
+        <label for="location">Sted:</label>
+        <input type="text" id="location" name="location" required>
+        <label for="date">Dato:</label>
+        <input type="date" id="date" name="date" required>
+        <button type="submit">Opprett tur</button>
+      </form>
+      <div id="tripMessage"></div>
+    </section>
+
+    <!-- Værmelding -->
+    <section id="weather">
+      <h2>Værmelding</h2>
+      <p>Klikk på en tur for å se værmelding for stedet</p>
+      <div id="weatherDisplay"></div>
+    </section>
+  </main>
+
+  <script src="js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>UT.no-klone - Turer og friluftsliv</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>UT.no-klone</h1>
+      <div class="nav-links">
+        <a href="#turer" onclick="showSection('turer'); return false;">Turer</a>
+        <a href="#ny-tur" id="nyTurLink" style="display:none;" onclick="showSection('ny-tur'); return false;">Opprett tur</a>
+
+        <!-- Minimalistisk login dropdown -->
+        <div class="login-dropdown" id="loginDropdown">
+          <button class="login-btn" id="loginToggle">
+            <span id="loginBtnText">Logg inn</span>
+            <span class="dropdown-arrow">▼</span>
+          </button>
+
+          <div class="dropdown-content" id="dropdownContent">
+            <!-- Login form -->
+            <div class="login-form" id="loginForm">
+              <h4>Logg inn</h4>
+              <form id="loginSubmitForm">
+                <input type="email" id="loginEmail" placeholder="E-post" required>
+                <input type="password" id="loginPassword" placeholder="Passord" required>
+                <button type="submit">Logg inn</button>
+              </form>
+              <p class="switch-form">Ny bruker? <a href="#" id="showRegister">Registrer deg</a></p>
+            </div>
+
+            <!-- Register form -->
+            <div class="register-form" id="registerForm" style="display:none;">
+              <h4>Registrer deg</h4>
+              <form id="registerSubmitForm">
+                <input type="email" id="registerEmail" placeholder="E-post" required>
+                <input type="text" id="registerName" placeholder="Navn" required>
+                <input type="password" id="registerPassword" placeholder="Passord" required>
+                <button type="submit">Registrer</button>
+              </form>
+              <p class="switch-form">Har konto? <a href="#" id="showLogin">Logg inn</a></p>
+            </div>
+
+            <div id="authMessage"></div>
+          </div>
+        </div>
+
+        <!-- User info when logged in -->
+        <div class="user-info-nav" id="userNavInfo" style="display:none;">
+          <span id="userNameDisplay"></span>
+          <button class="logout-btn" id="logoutBtn">Logg ut</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- User info -->
+    <div id="userInfo"></div>
+
+    <!-- Kart og turer section -->
+    <section id="map-section">
+      <h2>Turer i Norge</h2>
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+      <div class="location-filter">
+        <label for="locationSelect">Velg område:</label>
+        <select id="locationSelect">
+          <option value="">Alle steder</option>
+          <option value="Oslo">Oslo</option>
+          <option value="Bergen">Bergen</option>
+          <option value="Trondheim">Trondheim</option>
+          <option value="Stavanger">Stavanger</option>
+          <option value="Tromsø">Tromsø</option>
+          <option value="Drammen">Drammen</option>
+          <option value="Kristiansand">Kristiansand</option>
+          <option value="Lillehammer">Lillehammer</option>
+          <option value="Bodø">Bodø</option>
+          <option value="Molde">Molde</option>
+          <option value="Haugesund">Haugesund</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Turer section -->
+    <section id="turer">
+      <h2>Turliste</h2>
+      <ul id="tripList"></ul>
+    </section>
+
+    <!-- Ny tur section (kun for innloggede) -->
+    <section id="ny-tur" style="display:none;">
+      <h2>Opprett ny tur</h2>
+      <div class="trip-instructions">
+        <p>📍 <strong>Klikk på kartet</strong> for å velge hvor turen skal gå eller starte!</p>
+      </div>
+      <form id="tripForm">
+        <label for="title">Tittel:</label>
+        <input type="text" id="title" name="title" required>
+        <label for="description">Beskrivelse:</label>
+        <textarea id="description" name="description" required></textarea>
+        <label for="location">Sted:</label>
+        <input type="text" id="location" name="location" required>
+        <label for="date">Dato:</label>
+        <input type="date" id="date" name="date" required>
+        <button type="submit">Opprett tur</button>
+      </form>
+      <div id="tripMessage"></div>
+    </section>
+
+    <!-- Værmelding -->
+    <section id="weather">
+      <h2>Værmelding</h2>
+      <p>Klikk på en tur for å se værmelding for stedet</p>
+      <div id="weatherDisplay"></div>
+    </section>
+  </main>
+
+  <!-- Leaflet JavaScript -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Trip Demo Data Schema",
+  "description": "Schema for demo trip data that matches the MongoDB Trip model",
+  "type": "object",
+  "properties": {
+    "trips": {
+      "type": "array",
+      "description": "Array of trip objects",
+      "items": {
+        "$ref": "#/definitions/Trip"
+      }
+    }
+  },
+  "required": ["trips"],
+  "definitions": {
+    "Trip": {
+      "type": "object",
+      "description": "A hiking trip with location and details",
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Name/title of the trip",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the trip",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "location": {
+          "type": "string",
+          "description": "Location/city where the trip takes place",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of the trip in YYYY-MM-DD format"
+        },
+        "createdBy": {
+          "type": "string",
+          "format": "email",
+          "description": "Email of the user who created the trip"
+        },
+        "coordinates": {
+          "type": "array",
+          "description": "Geographic coordinates [latitude, longitude]",
+          "items": {
+            "type": "number"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "required": ["title", "description", "location", "date", "createdBy"],
+      "additionalProperties": false
+    }
+  }
+}
+

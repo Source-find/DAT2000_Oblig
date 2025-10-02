@@ -1,0 +1,445 @@
+{
+  "trips": [
+    {
+      "title": "Holmenkollen",
+      "description": "Klassisk tur til Oslos berømte skihoppbakke. Fantastisk utsikt over hovedstaden.",
+      "location": "Oslo",
+      "date": "2025-05-01",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.9639, 10.6681]
+    },
+    {
+      "title": "Frognerseteren",
+      "description": "Populær utfluktsmål i Nordmarka med restaurant og flott utsikt over Oslo.",
+      "location": "Oslo",
+      "date": "2025-05-15",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.9857, 10.6702]
+    },
+    {
+      "title": "Ullevålseter",
+      "description": "Klassisk skiløype-destinasjon i Nordmarka, flott for turgåing om sommeren.",
+      "location": "Oslo",
+      "date": "2025-06-01",
+      "createdBy": "demo@utno.no",
+      "coordinates": [60.0439, 10.7319]
+    },
+    {
+      "title": "Vettakollen",
+      "description": "Populær utsiktspunkt vest for Oslo med flott panoramautsikt over fjorden.",
+      "location": "Oslo",
+      "date": "2025-05-25",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.9364, 10.6292]
+    },
+    {
+      "title": "Ekebergåsen",
+      "description": "Skulpturpark og utsiktspunkt med panoramautsikt over Oslo sentrum.",
+      "location": "Oslo",
+      "date": "2025-05-10",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.8965, 10.7644]
+    },
+    {
+      "title": "Grefsenkollen",
+      "description": "Flott utsiktspunkt nord i Oslo med view over hele byen.",
+      "location": "Oslo",
+      "date": "2025-06-05",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.9874, 10.8021]
+    },
+    {
+      "title": "Sognsvann",
+      "description": "Populær badeplass og turområde med rundtur rundt vannet.",
+      "location": "Oslo",
+      "date": "2025-06-20",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.9687, 10.7309]
+    },
+    {
+      "title": "Øyeren Naturreservat",
+      "description": "Stort naturreservat øst for Oslo med rike fugle- og dyreliv.",
+      "location": "Oslo",
+      "date": "2025-07-01",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.6925, 11.2428]
+    },
+    {
+      "title": "Trolltunga",
+      "description": "Utfordrende dagstur til det berømte Trolltunga-fjellet. Spektakulær utsikt og fantastiske fotomuligheter.",
+      "location": "Bergen",
+      "date": "2025-08-10",
+      "createdBy": "demo@utno.no",
+      "coordinates": [60.1242, 6.7411]
+    },
+    {
+      "title": "Fløyen",
+      "description": "Lett tur til toppen av Fløyfjellet i Bergen. Flott utsikt over byen og fjordene.",
+      "location": "Bergen",
+      "date": "2025-05-12",
+      "createdBy": "demo@utno.no",
+      "coordinates": [60.4037, 5.3435]
+    },
+    {
+      "title": "Ulriken",
+      "description": "Bergens høyeste fjell på 643 meter. Fantastisk utsikt over byen og vestlandet.",
+      "location": "Bergen",
+      "date": "2025-05-20",
+      "createdBy": "demo@utno.no",
+      "coordinates": [60.3782, 5.3873]
+    },
+    {
+      "title": "Vidden - Fløyen til Ulriken",
+      "description": "Klassisk fjelltur mellom Bergens to høyeste topper. 8km gåtur med fantastisk utsikt.",
+      "location": "Bergen",
+      "date": "2025-06-05",
+      "createdBy": "demo@utno.no",
+      "coordinates": [60.3910, 5.3654]
+    },
+    {
+      "title": "Geiranger - Skageflå",
+      "description": "Historisk fjellgård med utrolig utsikt over verdensarvfjorden Geirangerfjorden.",
+      "location": "Bergen",
+      "date": "2025-08-20",
+      "createdBy": "demo@utno.no",
+      "coordinates": [62.1014, 7.0143]
+    },
+    {
+      "title": "Ålesund - Aksla Viewpoint",
+      "description": "Klassisk utsiktspunkt over Ålesund by og de mange øyene i vest.",
+      "location": "Bergen",
+      "date": "2025-06-25",
+      "createdBy": "demo@utno.no",
+      "coordinates": [62.4722, 6.1558]
+    },
+    {
+      "title": "Hardangervidda",
+      "description": "Norges største nasjonalpark - perfekt for flerdagers trekking på høyfjellet.",
+      "location": "Bergen",
+      "date": "2025-08-01",
+      "createdBy": "demo@utno.no",
+      "coordinates": [60.5000, 7.5000]
+    },
+    {
+      "title": "Rundemanen",
+      "description": "Populær fjelltopp ved Bergen med fantastisk utsikt over Vestlandet.",
+      "location": "Bergen",
+      "date": "2025-07-15",
+      "createdBy": "demo@utno.no",
+      "coordinates": [60.3456, 5.4123]
+    },
+    {
+      "title": "Preikestolen",
+      "description": "Spektakulær tur til Preikestolen med fantastisk utsikt over Lysefjorden. En av Norges mest kjente turistattraksjoner.",
+      "location": "Stavanger",
+      "date": "2025-06-15",
+      "createdBy": "demo@utno.no",
+      "coordinates": [58.9864, 6.1881]
+    },
+    {
+      "title": "Kjeragbolten",
+      "description": "Dramatisk tur til den berømte steinen som ligger kilt mellom to fjellvegger.",
+      "location": "Stavanger",
+      "date": "2025-07-01",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.0347, 6.5931]
+    },
+    {
+      "title": "Flørli 4444",
+      "description": "Verdens lengste tretrapp med 4444 trinn. Fantastisk utsikt over Lysefjorden.",
+      "location": "Stavanger",
+      "date": "2025-06-20",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.0956, 6.2167]
+    },
+    {
+      "title": "Månafossen",
+      "description": "Spektakulær foss ved Ryfylke med 92 meter fritt fall.",
+      "location": "Stavanger",
+      "date": "2025-07-10",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.0234, 6.4567]
+    },
+    {
+      "title": "Dalsnuten",
+      "description": "Populær turtopp med panoramautsikt over Sandnes og omegn.",
+      "location": "Stavanger",
+      "date": "2025-06-30",
+      "createdBy": "demo@utno.no",
+      "coordinates": [58.9123, 5.8765]
+    },
+    {
+      "title": "Sørmarka",
+      "description": "Stort naturområde sør for Stavanger med mange fine turstier.",
+      "location": "Stavanger",
+      "date": "2025-05-20",
+      "createdBy": "demo@utno.no",
+      "coordinates": [58.8567, 5.7234]
+    },
+    {
+      "title": "Gloppedalsura",
+      "description": "Unikt naturområde med store steinblokker fra istiden.",
+      "location": "Stavanger",
+      "date": "2025-08-05",
+      "createdBy": "demo@utno.no",
+      "coordinates": [58.7234, 6.1234]
+    },
+    {
+      "title": "Lian",
+      "description": "Populært utfartsområde i Trondheim med skiløyper og turstier.",
+      "location": "Trondheim",
+      "date": "2025-05-10",
+      "createdBy": "demo@utno.no",
+      "coordinates": [63.4521, 10.4689]
+    },
+    {
+      "title": "Bymarka",
+      "description": "Trondheims store rekreasjonsområde med hundrevis av kilometer med stier.",
+      "location": "Trondheim",
+      "date": "2025-06-15",
+      "createdBy": "demo@utno.no",
+      "coordinates": [63.4205, 10.3544]
+    },
+    {
+      "title": "Gråkallen",
+      "description": "Høyeste punkt i Bymarka med TV-tårn og fantastisk utsikt over Trondheim.",
+      "location": "Trondheim",
+      "date": "2025-07-05",
+      "createdBy": "demo@utno.no",
+      "coordinates": [63.4049, 10.3102]
+    },
+    {
+      "title": "Estenstadmarka",
+      "description": "Variert turområde øst for Trondheim med mange fine topper.",
+      "location": "Trondheim",
+      "date": "2025-06-10",
+      "createdBy": "demo@utno.no",
+      "coordinates": [63.3987, 10.5234]
+    },
+    {
+      "title": "Vassfjellet",
+      "description": "Populært skiområde og turområde vest for Trondheim.",
+      "location": "Trondheim",
+      "date": "2025-07-20",
+      "createdBy": "demo@utno.no",
+      "coordinates": [63.3456, 10.2345]
+    },
+    {
+      "title": "Okstindan",
+      "description": "Imponerende fjellområde nordøst for Trondheim med mange topper over 1500m.",
+      "location": "Trondheim",
+      "date": "2025-08-15",
+      "createdBy": "demo@utno.no",
+      "coordinates": [65.1234, 13.4567]
+    },
+    {
+      "title": "Nordkapp",
+      "description": "Tur til Europas nordligste punkt. Opplev midnattsola og den arktiske naturen.",
+      "location": "Tromsø",
+      "date": "2025-06-21",
+      "createdBy": "demo@utno.no",
+      "coordinates": [71.1725, 25.7840]
+    },
+    {
+      "title": "Dalsnibba",
+      "description": "Fantastisk utsikt over Geirangerfjorden fra 1500 meters høyde.",
+      "location": "Tromsø",
+      "date": "2025-07-10",
+      "createdBy": "demo@utno.no",
+      "coordinates": [62.1040, 7.0058]
+    },
+    {
+      "title": "Husfjellet",
+      "description": "Tromsøs lokale husfjell med fantastisk utsikt over byen og fjordene.",
+      "location": "Tromsø",
+      "date": "2025-06-10",
+      "createdBy": "demo@utno.no",
+      "coordinates": [69.6863, 18.8987]
+    },
+    {
+      "title": "Lofoten - Reinebringen",
+      "description": "En av Norges vakreste turer med spektakulær utsikt over Reinefjorden i Lofoten.",
+      "location": "Tromsø",
+      "date": "2025-07-25",
+      "createdBy": "demo@utno.no",
+      "coordinates": [67.9319, 13.0297]
+    },
+    {
+      "title": "Kvaløya",
+      "description": "Stor øy vest for Tromsø med mange fine fjelltopper og turområder.",
+      "location": "Tromsø",
+      "date": "2025-08-05",
+      "createdBy": "demo@utno.no",
+      "coordinates": [69.7234, 18.5678]
+    },
+    {
+      "title": "Lyngsalpene",
+      "description": "Spektakulære alpine fjell øst for Tromsø, kalt Norges Sveits.",
+      "location": "Tromsø",
+      "date": "2025-07-30",
+      "createdBy": "demo@utno.no",
+      "coordinates": [69.5678, 20.1234]
+    },
+    {
+      "title": "Besseggen",
+      "description": "Klassisk fjelltur over Besseggen i Jotunheimen. Flott utsikt over Gjende og Bessvatnet.",
+      "location": "Lillehammer",
+      "date": "2025-07-20",
+      "createdBy": "demo@utno.no",
+      "coordinates": [61.4969, 8.6752]
+    },
+    {
+      "title": "Galdhøpiggen",
+      "description": "Bestig Norges høyeste fjell på 2469 meter. Fantastisk utsikt over Jotunheimen.",
+      "location": "Lillehammer",
+      "date": "2025-07-30",
+      "createdBy": "demo@utno.no",
+      "coordinates": [61.6362, 8.3126]
+    },
+    {
+      "title": "Glittertind",
+      "description": "Norges nest høyeste fjell på 2465 meter. Flott alternativ til Galdhøpiggen.",
+      "location": "Lillehammer",
+      "date": "2025-08-05",
+      "createdBy": "demo@utno.no",
+      "coordinates": [61.6283, 8.5578]
+    },
+    {
+      "title": "Romsdalseggen",
+      "description": "Spektakulær fjellkam med utsikt over Åndalsnes og Romsdalen.",
+      "location": "Lillehammer",
+      "date": "2025-08-15",
+      "createdBy": "demo@utno.no",
+      "coordinates": [62.5597, 7.6920]
+    },
+    {
+      "title": "Rondane Nasjonalpark",
+      "description": "Norges eldste nasjonalpark med 10 topper over 2000 meter.",
+      "location": "Lillehammer",
+      "date": "2025-08-25",
+      "createdBy": "demo@utno.no",
+      "coordinates": [61.8234, 9.7456]
+    },
+    {
+      "title": "Ravnedalen",
+      "description": "Vakker naturpark i Kristiansand med elveløp, bro og botanisk hage.",
+      "location": "Kristiansand",
+      "date": "2025-05-05",
+      "createdBy": "demo@utno.no",
+      "coordinates": [58.1467, 7.9956]
+    },
+    {
+      "title": "Baneheia",
+      "description": "Populært naturområde med innsjøer og fine turstier rett ved Kristiansand sentrum.",
+      "location": "Kristiansand",
+      "date": "2025-05-18",
+      "createdBy": "demo@utno.no",
+      "coordinates": [58.1638, 8.0302]
+    },
+    {
+      "title": "Setesdal Vesthei",
+      "description": "Flott fjellområde nord for Kristiansand med mange fine toppturer.",
+      "location": "Kristiansand",
+      "date": "2025-07-12",
+      "createdBy": "demo@utno.no",
+      "coordinates": [58.9423, 7.8231]
+    },
+    {
+      "title": "Lindesnes Fyr",
+      "description": "Norges sørligste punkt med historisk fyrtårn og flott kystlandskap.",
+      "location": "Kristiansand",
+      "date": "2025-06-18",
+      "createdBy": "demo@utno.no",
+      "coordinates": [57.9826, 7.0467]
+    },
+    {
+      "title": "Spiralen",
+      "description": "Unik spiralformet tunnel som leder til flott utsiktspunkt over Drammen.",
+      "location": "Drammen",
+      "date": "2025-05-08",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.7433, 10.2050]
+    },
+    {
+      "title": "Konnerudkollen",
+      "description": "Populær turdestinasjoin med flott utsikt over Drammen og Drammensfjorden.",
+      "location": "Drammen",
+      "date": "2025-06-12",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.7644, 10.1456]
+    },
+    {
+      "title": "Lierfoss",
+      "description": "Vakker fossefall og populært turmål sør for Drammen.",
+      "location": "Drammen",
+      "date": "2025-06-18",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.6867, 10.2278]
+    },
+    {
+      "title": "Saltstraumen",
+      "description": "Verdens sterkeste tidevannsstrøm. Spektakulært naturområde med kraftige strømmer.",
+      "location": "Bodø",
+      "date": "2025-07-08",
+      "createdBy": "demo@utno.no",
+      "coordinates": [67.2378, 14.6122]
+    },
+    {
+      "title": "Keiservarden",
+      "description": "Bodøs lokale husfjell med 366 moh og fantastisk utsikt over Lofoten.",
+      "location": "Bodø",
+      "date": "2025-06-18",
+      "createdBy": "demo@utno.no",
+      "coordinates": [67.2803, 14.4053]
+    },
+    {
+      "title": "Svartisen",
+      "description": "Norges nest største breidett med spektakulære islandskap.",
+      "location": "Bodø",
+      "date": "2025-08-10",
+      "createdBy": "demo@utno.no",
+      "coordinates": [66.6378, 14.0122]
+    },
+    {
+      "title": "Romsdalshorn",
+      "description": "Ikonisk spiss topp som kalles Norges vakreste fjell.",
+      "location": "Molde",
+      "date": "2025-08-12",
+      "createdBy": "demo@utno.no",
+      "coordinates": [62.4236, 7.6889]
+    },
+    {
+      "title": "Moldefjell Varden",
+      "description": "Klassisk utsiktspunkt over Molde og de 222 toppene i Romsdalen.",
+      "location": "Molde",
+      "date": "2025-06-30",
+      "createdBy": "demo@utno.no",
+      "coordinates": [62.7486, 7.1964]
+    },
+    {
+      "title": "Atlanterhavsveien",
+      "description": "Verdens vakreste biltur med broer som forbinder småøyer i havet.",
+      "location": "Molde",
+      "date": "2025-07-15",
+      "createdBy": "demo@utno.no",
+      "coordinates": [63.0167, 7.3333]
+    },
+    {
+      "title": "Steinsfjellet",
+      "description": "Haugesunds høyeste punkt med panoramautsikt over Haugalandet.",
+      "location": "Haugesund",
+      "date": "2025-05-22",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.4138, 5.2681]
+    },
+    {
+      "title": "Langfoss",
+      "description": "En av verdens vakreste fosser, 612 meter høy i Åkrafjorden.",
+      "location": "Haugesund",
+      "date": "2025-07-05",
+      "createdBy": "demo@utno.no",
+      "coordinates": [59.8567, 6.4234]
+    }
+  ]
+}
+
