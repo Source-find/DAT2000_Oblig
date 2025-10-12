@@ -1,22 +1,21 @@
 (async function () {
     const catalogElement = document.querySelector('.catalog')
+    const searchInput = document.getElementById('search-input')
+    let allTurer = [] // Lagre alle turer for søkefunksjonalitet
 
-    try {
-        // Hent turer fra API
-        const response = await fetch('/api/turer')
-        const turer = await response.json()
-
+    // Funksjon for å vise turer
+    function displayTurer(turerToDisplay) {
         // Tøm eksisterende innhold
         catalogElement.innerHTML = ''
 
         // Hvis ingen turer finnes, vil det vises 'Ingen turer funnet' på nettsiden
-        if (turer.length === 0) {
+        if (turerToDisplay.length === 0) {
             catalogElement.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">Ingen turer funnet</p>'
             return
         }
 
         // Generer kort for hver tur
-        turer.forEach(tur => {
+        turerToDisplay.forEach(tur => {
             const card = document.createElement('div')
             card.className = 'card'
 
@@ -51,6 +50,55 @@
 
             catalogElement.appendChild(card)
         })
+    }
+
+    // Søkefunksjon
+    function searchTurer(searchTerm) {
+        const term = searchTerm.toLowerCase().trim()
+
+        if (term === '') {
+            displayTurer(allTurer)
+            return
+        }
+
+        const filteredTurer = allTurer.filter(tur => {
+            // Søk i navn, destinasjon, type, lengde og vanskelighetsgrad
+            const typeNorsk = tur.type === 'fjelltur' ? 'fjelltur' : 'skogstur'
+            const lengdeNorsk = {
+                'kort': 'kort',
+                'middels': 'middels',
+                'lang': 'lang'
+            }[tur.turLengde]
+            const vanskelighetNorsk = {
+                'lett': 'lett',
+                'middels': 'middels',
+                'vanskelig': 'vanskelig'
+            }[tur.vanskelighetsgrad]
+            const lederNavn = tur.lederId ? tur.lederId.navn.toLowerCase() : ''
+
+            return tur.navn.toLowerCase().includes(term) ||
+                   tur.destinasjon.toLowerCase().includes(term) ||
+                   typeNorsk.includes(term) ||
+                   lengdeNorsk.includes(term) ||
+                   vanskelighetNorsk.includes(term) ||
+                   lederNavn.includes(term)
+        })
+
+        displayTurer(filteredTurer)
+    }
+
+    // Legg til event listener for søkeinput
+    searchInput.addEventListener('input', (e) => {
+        searchTurer(e.target.value)
+    })
+
+    try {
+        // Hent turer fra API
+        const response = await fetch('/api/turer')
+        const turer = await response.json()
+
+        allTurer = turer
+        displayTurer(allTurer)
     } catch (error) {
         console.error('Feil ved lasting av turer:', error)
         catalogElement.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: red;">Kunne ikke laste turer</p>'
