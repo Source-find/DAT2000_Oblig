@@ -43,11 +43,12 @@ const TurSchema = new mongoose.Schema({
     deltakerIds: {
         // type må være en ObjectID tilhørende
         // bruker/e i "bruker"-modellen. Hence arraybrackets.
-        // 
+        //
         type: [mongoose.Schema.Types.ObjectId],
         ref: "Bruker"
     }
 })
 
 // Eksporterer modellen slik at den kan brukes senere
-module.exports = mongoose.model('Tur', TurSchema);
+// Tredje parameter (turer i dette tilfelle) spesifiserer collection-navnet i databasen
+module.exports = mongoose.model('Tur', TurSchema, 'turer');

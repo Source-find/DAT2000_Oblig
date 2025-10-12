@@ -30,4 +30,5 @@ const BrukerSchema = new mongoose.Schema({
 })
 
 // Eksporterer modellen slik at den kan brukes senere
-module.exports = mongoose.model('Bruker', BrukerSchema);
+// Tredje parameter (Brukere i dette tilfelle) spesifiserer collection-navnet i databasen
+module.exports = mongoose.model('Bruker', BrukerSchema, 'brukere');
