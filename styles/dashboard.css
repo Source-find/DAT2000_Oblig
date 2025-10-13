@@ -35,3 +35,9 @@ button {
 button:hover {
     opacity: 0.95
 }
+
+#turSkjema{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

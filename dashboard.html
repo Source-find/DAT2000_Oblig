@@ -26,6 +26,32 @@
       </main>
     </div>
     <script src="scripts/dashboard.js"></script>
+
+  <div class = "tur-skjema">
+      <h3>Opprett ny tur</h3>
+      <button id="visTurSkjema">Vis/Skjul skjema</button>
+      <form id = "turSkjema">
+        <label for="turNavn">Tur Navn:</label>
+        <input type="text" id="turNavn" name="turNavn"/>
+        <label for="turDato">Tur Dato:</label>
+        <input type="date" id="turDato" name="turDato"/>
+        <label for="turDestinasjon">Destinasjon:</label>
+        <input type="text" id="turDestinasjon" name="turDestinasjon"/>
+        <label for="turType">Tur Type:</label>
+        <input type="text" id="turType" name="turType"/>
+        <label for="turLengde">Tur Lengde:</label> <!--Må være lang, middels eller kort-->
+        <input type="text" id="turLengde" name="turLengde"/>
+        <Label for="turVanskelighetsgrad">Tur Vanskelighetsgrad:</Label>  <!--Må være lett, middels eller vanskelig-->
+        <input type="text" id="turVanskelighetsgrad" name="turVanskelighetsgrad"/>
+        <label for="turLederId">Tur Leder ID:</label>
+        <input type="text" id="turLederId" name="turLederId"/>
+        <button type="submit">Opprett Tur</button>
+      </form>
+
+
+
+    </div>
+
   </body>
 
 </html>
