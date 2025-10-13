@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Admin Login</title>
+	<link rel="stylesheet" href="styles/admin.css">
+
+</head>
+
+<body>
+	<div class="container">
+		<h2>Admin Login</h2>
+		<form id="loginForm" autocomplete="off">
+			<label for="username">Brukernavn</label>
+			<input id="username" name="username" type="text" placeholder="admin" />
+
+			<label for="password">Passord</label>
+			<input id="password" name="password" type="password" placeholder="password" />
+
+			<div class="actions">
+				<button type="submit">Logg inn</button>
+			</div>
+			<div id="error" class="error" role="alert" aria-live="polite"></div>
+			<div class="note">Bruker på demo: <strong>admin</strong> og passord: <strong>admin123</strong></div>
+		</form>
+	</div>
+	<script src="scripts/admin.js"></script>
+
+
+</body>
+
+</html>
