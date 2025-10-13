@@ -1,35 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html lang="no">
 
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Brukerside</title>
-    <link rel="stylesheet" href="styles/brukere.css">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Logg inn | UT.no</title>
+	<link rel="stylesheet" href="styles/brukere.css">
+</head>
 
-  </head>
+<body>
+	<div class="container">
+		<!-- INNLOGGING -->
+		<div id="loginSection">
+			<h2>Logg inn</h2>
+			<form id="loginForm" autocomplete="off">
+				<label for="loginEpost">E-post</label>
+				<input id="loginEpost" name="epost" type="email" placeholder="din@epost.no" required />
 
-  <body>
-    <div class="wrap">
-      <header>
-        <h1>Brukerside</h1>
-        <div>
-          <button id="logout">Logg ut</button>
-        </div>
-      </header>
+				<div class="actions">
+					<button type="submit">Logg inn</button>
+				</div>
+				<div id="loginError" class="error" role="alert" aria-live="polite"></div>
+			</form>
+			
+			<div class="switch-text">
+				<p>Ny bruker? <a href="#" id="showRegister">Registrer deg her</a></p>
+			</div>
+		</div>
 
-      <main style="margin-top:20px">
-        <section class="card">
-          <h2>Velkommen, Toothfairy</h2>
-          <p>Du er nå logget inn og kan se og lagre turer, hytter osv..</p>
-        </section>
-      </main>
-    </div>
+		<!-- REGISTRERING -->
+		<div id="registerSection" style="display: none;">
+			<h2>Registrer ny bruker</h2>
+			<form id="registerForm" autocomplete="off">
+				<label for="registerNavn">Navn</label>
+				<input id="registerNavn" name="navn" type="text" placeholder="Ola Nordmann" required />
 
-    <script>
+				<label for="registerEpost">E-post</label>
+				<input id="registerEpost" name="epost" type="email" placeholder="ola@epost.no" required />
 
-    </script>
+				<div class="actions">
+					<button type="submit">Registrer</button>
+				</div>
+				<div id="registerError" class="error" role="alert" aria-live="polite"></div>
+			</form>
+			
+			<div class="switch-text">
+				<p>Har du allerede konto? <a href="#" id="showLogin">Logg inn her</a></p>
+			</div>
+		</div>
+	</div>
 
-  </body>
+	<script src="scripts/bruker.js"></script>
+</body>
 
 </html>

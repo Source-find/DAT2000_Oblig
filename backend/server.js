@@ -74,6 +74,50 @@ app.get("/api/turer", async (req, res) => {
     }
 })
 
+// API-endepunkt for å logge inn
+app.post("/api/brukere/login", async (req, res) => {
+    try {
+        // Hent epost fra frontend
+        const { epost } = req.body
+
+        // Validering: Sjekk at epost er sendt med
+        if (!epost) {
+            return res.status(400).json({ message: "E-post må fylles ut" })
+        }
+
+        // Finn bruker med denne eposten i databasen
+        const bruker = await Bruker.findOne({ epost: epost })
+
+        // Hvis bruker ikke finnes
+        if (!bruker) {
+            return res.status(404).json({ message: "Bruker ikke funnet" })
+        }
+
+        // Send tilbake brukerinfo MED redirect-URL basert på rolle
+        let redirectUrl;
+        if (bruker.rolle === "admin") {
+            redirectUrl = "/dashboard.html"  // Admin går til dashboard
+        } else {
+            redirectUrl = "/turer.html"      // Deltaker og turleder går til turer
+        }
+
+        res.json({
+            message: "Innlogging vellykket!",
+            bruker: {
+                _id: bruker._id,
+                navn: bruker.navn,
+                epost: bruker.epost,
+                rolle: bruker.rolle
+            },
+            redirectUrl: redirectUrl  // Backend bestemmer hvor bruker skal
+        })
+
+    } catch (error) {
+        console.error("Feil ved innlogging:", error)
+        res.status(500).json({ message: "Kunne ikke logge inn" })
+    }
+})
+
 // Serveren starter
 app.listen(PORT, () => {
     console.log(`Server kjører på http://localhost:${PORT} `)
