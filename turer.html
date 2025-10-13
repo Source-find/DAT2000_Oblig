@@ -18,6 +18,28 @@
         <!-- Turene lastes dynamisk fra databasen -->
     </div>
 
+    <h2 style="margin-top: 2rem;">Meld deg på en tur</h2>
+    <form id="registration-form" style="max-width: 480px; display: grid; gap: 0.5rem;">
+        <label>
+            Velg tur
+            <select id="tripId" required></select>
+        </label>
+        <label>
+            Navn
+            <input id="name" name="name" required />
+        </label>
+        <label>
+            E‑post
+            <input id="email" name="email" type="email" required />
+        </label>
+        <label>
+            Telefon (valgfritt)
+            <input id="phone" name="phone" />
+        </label>
+        <button type="submit">Send påmelding</button>
+        <p id="status" aria-live="polite"></p>
+    </form>
+
     <script src="scripts/turer.js"></script>
 </body>
 </html>

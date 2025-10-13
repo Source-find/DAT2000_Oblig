@@ -99,6 +99,61 @@
 
         allTurer = turer
         displayTurer(allTurer)
+
+        // Fyll nedtrekk for registreringsskjema hvis det finnes på siden
+        const tripSelect = document.getElementById('tripId')
+        if (tripSelect) {
+            tripSelect.innerHTML = allTurer.map(t => {
+                const dato = (t.datoer && t.datoer[0]) ? new Date(t.datoer[0]).toLocaleDateString('no-NO') : ''
+                return `<option value="${t._id}">${t.navn} ${dato ? '– ' + dato : ''}</option>`
+            }).join('')
+        }
+
+        // Håndter innsending av registreringsskjema
+        const form = document.getElementById('registration-form')
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault()
+                const statusEl = document.getElementById('status')
+                if (statusEl) { statusEl.textContent = '' }
+
+                const payload = {
+                    tripId: document.getElementById('tripId').value,
+                    name: document.getElementById('name').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    phone: document.getElementById('phone') ? document.getElementById('phone').value.trim() : ''
+                }
+
+                try {
+                    const res = await fetch('/api/registrations', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    })
+
+                    if (!res.ok) {
+                        const err = await res.json().catch(() => ({ message: 'Ukjent feil' }))
+                        if (statusEl) {
+                            statusEl.textContent = `Feil: ${err.message || res.statusText}`
+                            statusEl.style.color = 'crimson'
+                        }
+                        return
+                    }
+
+                    const data = await res.json()
+                    if (statusEl) {
+                        statusEl.textContent = `Påmelding registrert! Ref: ${data.registration && data.registration.userId}`
+                        statusEl.style.color = 'green'
+                    }
+                    form.reset()
+                } catch (err) {
+                    if (statusEl) {
+                        statusEl.textContent = 'Nettverksfeil – prøv igjen senere.'
+                        statusEl.style.color = 'crimson'
+                    }
+                }
+            })
+        }
     } catch (error) {
         console.error('Feil ved lasting av turer:', error)
         catalogElement.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: red;">Kunne ikke laste turer</p>'
