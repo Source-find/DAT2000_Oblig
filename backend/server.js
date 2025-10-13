@@ -73,6 +73,49 @@ app.get("/api/turer", async (req, res) => {
         res.status(500).json({ message: "Kunne ikke hente turer" })
     }
 })
+// opprette ny tur
+app.post("/api/turer", async (req, res) => {
+     console.log("=== POST REQUEST MOTTATT ===");
+    console.log("Mottatt data:", req.body);
+    try {
+        // Opprette ny tur med data i fra skjemaet
+        const nyTur = new Tur({
+            navn: req.body.navn,
+            datoer: req.body.datoer,
+            destinasjon: req.body.destinasjon,
+            type: req.body.type,
+            turLengde: req.body.turLengde,
+            vanskelighetsgrad: req.body.vanskelighetsgrad,
+            lederId: req.body.lederId,
+            deltakerIds: req.body.deltakerIds || [] // Tom array hvis ingen deltakere
+        });
+        // Lagre den nye turen i databasen
+        const lagretTur = await nyTur.save();
+        // Send tilbake den lagrede turen 
+        res.status(201).json(lagretTur);
+
+        // Feilhåndtering
+    } catch (error) {
+        console.log("=== FEIL OPPSTOD ===");
+        console.error("Feil ved opprettelse av tur:", error);
+        console.error("Error stack:", error.stack);
+        res.status(500).json({ message: "Kunne ikke opprette tur" });
+    }
+    
+});
+app.get("/test-connection", async (req, res) => {
+    try {
+        const collections = await mongoose.connection.db.listCollections().toArray();
+        const dbName = mongoose.connection.name;
+        res.json({ 
+            database: dbName,
+            collections: collections.map(c => c.name),
+            connectionState: mongoose.connection.readyState
+        });
+    } catch (error) {
+        res.json({ error: error.message });
+    }
+});
 
 // Serveren starter
 app.listen(PORT, () => {
