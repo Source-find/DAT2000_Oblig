@@ -1,14 +1,14 @@
-// Import for .env
-require('dotenv').config()
+// Import for path (for å håndtere filstier)
+const path = require("path")
+
+// Last .env fra backend-mappen eksplisitt
+require('dotenv').config({ path: path.join(__dirname, '.env') })
 
 // Import for express
 const express = require("express")
 
 // Import for mongoose
 const mongoose = require("mongoose")
-
-// Import for path (for å håndtere filstier)
-const path = require("path")
 
 // Vi lager en express applikasjon
 const app = express()
@@ -26,6 +26,10 @@ app.use(express.static(path.join(__dirname, "..")))
 // Oppkobling til MongoDB!
 // Utilizer oppkoblingsstringen i /.env
 // then/catch er feilhåndtering
+if (!process.env.MONGODB_URI) {
+    console.error("MONGODB_URI mangler. Sjekk at backend/.env finnes og at serveren leser riktig fil.")
+    process.exit(1)
+}
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log("Oppkobling suksess!"))
     .catch((error) => console.error("Feil ved oppkobling:", error))
@@ -71,6 +75,49 @@ app.get("/api/turer", async (req, res) => {
     } catch (error) {
         console.error("Feil ved henting av turer:", error)
         res.status(500).json({ message: "Kunne ikke hente turer" })
+    }
+})
+
+// API-endepunkt for å registrere påmelding til en eksisterende tur
+app.post("/api/registrations", async (req, res) => {
+    try {
+        const { tripId, name, email } = req.body || {}
+        if (!tripId || !name || !email) {
+            return res.status(400).json({ message: "Mangler tripId, name eller email" })
+        }
+
+        // Finn turen
+        const tur = await Tur.findById(tripId)
+        if (!tur) {
+            return res.status(404).json({ message: "Tur ikke funnet" })
+        }
+
+        // Finn eller opprett bruker basert på epost
+        let bruker = await Bruker.findOne({ epost: email.toLowerCase().trim() })
+        if (!bruker) {
+            bruker = await Bruker.create({ navn: name.trim(), epost: email.toLowerCase().trim(), rolle: "deltaker" })
+        }
+
+        // Sjekk om bruker allerede er påmeldt denne turen
+        const alreadyJoined = (tur.deltakerIds || []).some(id => id.toString() === bruker._id.toString())
+        if (alreadyJoined) {
+            return res.status(409).json({ message: "Du er allerede påmeldt denne turen med denne e-posten." })
+        }
+
+        // Legg bruker til deltakerlisten og lagre
+        tur.deltakerIds = [...(tur.deltakerIds || []), bruker._id]
+        await tur.save()
+
+        return res.status(201).json({
+            message: "Påmelding registrert",
+            registration: {
+                tripId: tur._id,
+                userId: bruker._id
+            }
+        })
+    } catch (error) {
+        console.error("Feil ved registrering:", error)
+        return res.status(500).json({ message: "Kunne ikke registrere påmelding" })
     }
 })
 
