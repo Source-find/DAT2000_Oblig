@@ -26,7 +26,10 @@ app.use(express.static(path.join(__dirname, "..")))
 // Oppkobling til MongoDB!
 // Utilizer oppkoblingsstringen i /.env
 // then/catch er feilhåndtering
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI,{
+    serverSelectionTimeoutMS: 30000, // utsetter timeout 30 sekunder i stedet for 10
+    socketTimeoutMS: 45000 // 45 sekunder for socket timeout
+})
     .then(() => console.log("Oppkobling suksess!"))
     .catch((error) => console.error("Feil ved oppkobling:", error))
 
