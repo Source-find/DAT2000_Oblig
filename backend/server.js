@@ -73,10 +73,13 @@ app.get("/api/turer", async (req, res) => {
         res.status(500).json({ message: "Kunne ikke hente turer" })
     }
 })
+
+// Turregistrering: 
+
 // opprette ny tur
 app.post("/api/turer", async (req, res) => {
-     console.log("=== POST REQUEST MOTTATT ===");
-    console.log("Mottatt data:", req.body);
+     console.log("=== POST REQUEST MOTTATT ==="); // validering log
+    console.log("Mottatt data:", req.body); // validering log
     try {
         // Opprette ny tur med data i fra skjemaet
         const nyTur = new Tur({
@@ -87,10 +90,10 @@ app.post("/api/turer", async (req, res) => {
             turLengde: req.body.turLengde,
             vanskelighetsgrad: req.body.vanskelighetsgrad,
             lederId: req.body.lederId,
-            deltakerIds: req.body.deltakerIds || [] // Tom array hvis ingen deltakere
+            deltakerIds: req.body.deltakerIds || [] // Tom array hvis ingen deltakere, slik at det ikke blir undefined
         });
         // Lagre den nye turen i databasen
-        const lagretTur = await nyTur.save();
+        const lagretTur = await nyTur.save(); // pauser koden til lagring er ferdig
         // Send tilbake den lagrede turen 
         res.status(201).json(lagretTur);
 
@@ -103,16 +106,21 @@ app.post("/api/turer", async (req, res) => {
     }
     
 });
+// tester MongoDB connection og se database informasjon
 app.get("/test-connection", async (req, res) => {
     try {
+        // Hent en liste over alle collections (tabeller) i den tilkoblede databasen
         const collections = await mongoose.connection.db.listCollections().toArray();
+        // Hent navnet på databasen vi er koblet til
         const dbName = mongoose.connection.name;
+        // Send tilbake database informasjon som JSON
         res.json({ 
             database: dbName,
             collections: collections.map(c => c.name),
             connectionState: mongoose.connection.readyState
         });
     } catch (error) {
+        // Hvis det oppstår en feil (f.eks. database ikke tilgjengelig)
         res.json({ error: error.message });
     }
 });
